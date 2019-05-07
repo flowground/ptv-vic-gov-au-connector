@@ -1,0 +1,56 @@
+{
+    "type": "object",
+    "properties": {
+        "latitude": {
+            "required": true,
+            "type": "number",
+            "format": "float"
+        },
+        "longitude": {
+            "required": true,
+            "type": "number",
+            "format": "float"
+        },
+        "route_types": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "format": "int32",
+                "type": "integer"
+            }
+        },
+        "max_results": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "max_distance": {
+            "required": false,
+            "type": "number",
+            "format": "double"
+        },
+        "stop_disruptions": {
+            "required": false,
+            "type": "boolean"
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "devid": {
+            "required": false,
+            "type": "string"
+        },
+        "signature": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

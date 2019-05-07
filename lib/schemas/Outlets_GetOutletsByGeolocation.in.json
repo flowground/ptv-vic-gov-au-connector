@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "latitude": {
+            "required": true,
+            "type": "number",
+            "format": "float"
+        },
+        "longitude": {
+            "required": true,
+            "type": "number",
+            "format": "float"
+        },
+        "max_distance": {
+            "required": false,
+            "type": "number",
+            "format": "double"
+        },
+        "max_results": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "devid": {
+            "required": false,
+            "type": "string"
+        },
+        "signature": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "type": "object",
+    "properties": {
+        "route_type": {
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "stop_id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "route_id": {
+            "required": true,
+            "type": "string"
+        },
+        "direction_id": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "look_backwards": {
+            "required": false,
+            "type": "boolean"
+        },
+        "gtfs": {
+            "required": false,
+            "type": "boolean"
+        },
+        "date_utc": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "max_results": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "include_cancelled": {
+            "required": false,
+            "type": "boolean"
+        },
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "All",
+                    "Stop",
+                    "Route",
+                    "Run",
+                    "Direction",
+                    "Disruption"
+                ],
+                "type": "string"
+            }
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "devid": {
+            "required": false,
+            "type": "string"
+        },
+        "signature": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

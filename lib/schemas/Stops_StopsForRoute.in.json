@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "route_id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "route_type": {
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "direction_id": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "stop_disruptions": {
+            "required": false,
+            "type": "boolean"
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "devid": {
+            "required": false,
+            "type": "string"
+        },
+        "signature": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

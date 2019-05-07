@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "properties": {
+        "stop_id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "route_type": {
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "stop_location": {
+            "required": false,
+            "type": "boolean"
+        },
+        "stop_amenities": {
+            "required": false,
+            "type": "boolean"
+        },
+        "stop_accessibility": {
+            "required": false,
+            "type": "boolean"
+        },
+        "stop_contact": {
+            "required": false,
+            "type": "boolean"
+        },
+        "stop_ticket": {
+            "required": false,
+            "type": "boolean"
+        },
+        "gtfs": {
+            "required": false,
+            "type": "boolean"
+        },
+        "stop_staffing": {
+            "required": false,
+            "type": "boolean"
+        },
+        "stop_disruptions": {
+            "required": false,
+            "type": "boolean"
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "devid": {
+            "required": false,
+            "type": "string"
+        },
+        "signature": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

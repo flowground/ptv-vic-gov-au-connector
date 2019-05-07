@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "run_id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "devid": {
+            "required": false,
+            "type": "string"
+        },
+        "signature": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

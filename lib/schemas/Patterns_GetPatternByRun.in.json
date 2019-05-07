@@ -1,0 +1,59 @@
+{
+    "type": "object",
+    "properties": {
+        "run_id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "route_type": {
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "expand": {
+            "required": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "All",
+                    "Stop",
+                    "Route",
+                    "Run",
+                    "Direction",
+                    "Disruption"
+                ],
+                "type": "string"
+            }
+        },
+        "stop_id": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "date_utc": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "devid": {
+            "required": false,
+            "type": "string"
+        },
+        "signature": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

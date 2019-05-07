@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "properties": {
+        "route_types": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "format": "int32",
+                "type": "integer"
+            }
+        },
+        "route_name": {
+            "required": false,
+            "type": "string"
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "devid": {
+            "required": false,
+            "type": "string"
+        },
+        "signature": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

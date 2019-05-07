@@ -1,0 +1,71 @@
+{
+    "type": "object",
+    "properties": {
+        "search_term": {
+            "required": true,
+            "type": "string"
+        },
+        "route_types": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "format": "int32",
+                "type": "integer"
+            }
+        },
+        "latitude": {
+            "required": false,
+            "type": "number",
+            "format": "float"
+        },
+        "longitude": {
+            "required": false,
+            "type": "number",
+            "format": "float"
+        },
+        "max_distance": {
+            "required": false,
+            "type": "number",
+            "format": "float"
+        },
+        "include_addresses": {
+            "required": false,
+            "type": "boolean"
+        },
+        "include_outlets": {
+            "required": false,
+            "type": "boolean"
+        },
+        "match_stop_by_suburb": {
+            "required": false,
+            "type": "boolean"
+        },
+        "match_route_by_suburb": {
+            "required": false,
+            "type": "boolean"
+        },
+        "match_stop_by_gtfs_stop_id": {
+            "required": false,
+            "type": "boolean"
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "devid": {
+            "required": false,
+            "type": "string"
+        },
+        "signature": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

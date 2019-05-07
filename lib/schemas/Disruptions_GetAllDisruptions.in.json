@@ -1,0 +1,64 @@
+{
+    "type": "object",
+    "properties": {
+        "route_types": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "format": "int32",
+                "type": "integer"
+            }
+        },
+        "disruption_modes": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "enum": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    100
+                ],
+                "format": "int32",
+                "type": "integer"
+            }
+        },
+        "disruption_status": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "current",
+                "planned"
+            ]
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "devid": {
+            "required": false,
+            "type": "string"
+        },
+        "signature": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "route_id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "stop_id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "disruption_status": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "current",
+                "planned"
+            ]
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "devid": {
+            "required": false,
+            "type": "string"
+        },
+        "signature": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

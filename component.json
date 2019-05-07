@@ -1,0 +1,435 @@
+{
+    "title": "PTV Timetable API - Version 3",
+    "description": "The PTV Timetable API provides direct access to Public Transport Victoria's public transport timetable data.\r\n\r\nThe API returns scheduled timetable, route and stop data for all metropolitan and regional train, tram and bus services in Victoria, including Night Network(Night Train and Night Tram data are included in metropolitan train and tram services data, respectively, whereas Night Bus is a separate route type).\r\n\r\nThe API also returns real-time data for metropolitan train, tram and bus services (where this data is made available to PTV), as well as disruption information, stop facility information, and access to myki ticket outlet data.\r\n\r\nThis Swagger is for Version 3 of the PTV Timetable API. By using this documentation you agree to comply with the licence and terms of service.\r\n\r\nTrain timetable data is updated daily, while the remaining data is updated weekly, taking into account any planned timetable changes (for example, due to holidays or planned disruptions). The PTV timetable API is the same API used by PTV for its apps. To access the most up to date data PTV has (including real-time data) you must use the API dynamically.\r\n\r\nYou can access the PTV Timetable API through a HTTP or HTTPS interface, as follows:\r\n\r\n    base URL / version number / API name / query string\r\nThe base URL is either:\r\n  *  http://timetableapi.ptv.vic.gov.au\r\nor\r\n  *  https://timetableapi.ptv.vic.gov.au\r\n\r\nThe Swagger JSON file is available at http://timetableapi.ptv.vic.gov.au/swagger/docs/v3\r\n\r\nFrequently asked questions are available on the PTV website at http://ptv.vic.gov.au/apifaq\r\n\r\nLinks to the following information are also provided on the PTV website at http://ptv.vic.gov.au/ptv-timetable-api/\r\n* How to register for an API key and calculate a signature\r\n* PTV Timetable API V2 to V3 Migration Guide\r\n* Documentation for Version 2 of the PTV Timetable API\r\n* PTV Timetable API Data Quality Statement\r\n\r\nAll information about how to use the API is in this documentation. PTV cannot provide technical support for the API.\r\n\r\nCredits: This page has been based on Steve Bennett's http://opentransportdata.org/, used with permission.\r\n",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/ptv.vic.gov.au/v3/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://timetableapi.ptv.vic.gov.au/",
+                    "https://timetableapi.ptv.vic.gov.au/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Departures_GetForStop": {
+            "main": "./lib/actions/Departures_GetForStop.js",
+            "title": "View departures for all routes from a stop",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Departures_GetForStop.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Departures_GetForStopAndRoute": {
+            "main": "./lib/actions/Departures_GetForStopAndRoute.js",
+            "title": "View departures for a specific route from a stop",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Departures_GetForStopAndRoute.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Directions_ForRoute": {
+            "main": "./lib/actions/Directions_ForRoute.js",
+            "title": "View directions that a route travels in",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Directions_ForRoute.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Directions_ForDirection": {
+            "main": "./lib/actions/Directions_ForDirection.js",
+            "title": "View all routes for a direction of travel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Directions_ForDirection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Directions_ForDirectionAndType": {
+            "main": "./lib/actions/Directions_ForDirectionAndType.js",
+            "title": "View all routes of a particular type for a direction of travel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Directions_ForDirectionAndType.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Disruptions_GetAllDisruptions": {
+            "main": "./lib/actions/Disruptions_GetAllDisruptions.js",
+            "title": "View all disruptions for all route types",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Disruptions_GetAllDisruptions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Disruptions_GetDisruptionModes": {
+            "main": "./lib/actions/Disruptions_GetDisruptionModes.js",
+            "title": "Get all disruption modes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Disruptions_GetDisruptionModes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Disruptions_GetDisruptionsByRoute": {
+            "main": "./lib/actions/Disruptions_GetDisruptionsByRoute.js",
+            "title": "View all disruptions for a particular route",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Disruptions_GetDisruptionsByRoute.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Disruptions_GetDisruptionsByRouteAndStop": {
+            "main": "./lib/actions/Disruptions_GetDisruptionsByRouteAndStop.js",
+            "title": "View all disruptions for a particular route and stop",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Disruptions_GetDisruptionsByRouteAndStop.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Disruptions_GetDisruptionsByStop": {
+            "main": "./lib/actions/Disruptions_GetDisruptionsByStop.js",
+            "title": "View all disruptions for a particular stop",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Disruptions_GetDisruptionsByStop.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Disruptions_GetDisruptionById": {
+            "main": "./lib/actions/Disruptions_GetDisruptionById.js",
+            "title": "View a specific disruption",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Disruptions_GetDisruptionById.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Outlets_GetAllOutlets": {
+            "main": "./lib/actions/Outlets_GetAllOutlets.js",
+            "title": "List all ticket outlets",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Outlets_GetAllOutlets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Outlets_GetOutletsByGeolocation": {
+            "main": "./lib/actions/Outlets_GetOutletsByGeolocation.js",
+            "title": "List ticket outlets near a specific location",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Outlets_GetOutletsByGeolocation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Patterns_GetPatternByRun": {
+            "main": "./lib/actions/Patterns_GetPatternByRun.js",
+            "title": "View the stopping pattern for a specific trip/service run",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Patterns_GetPatternByRun.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RouteTypes_GetRouteTypes": {
+            "main": "./lib/actions/RouteTypes_GetRouteTypes.js",
+            "title": "View all route types and their names",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RouteTypes_GetRouteTypes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Routes_OneOrMoreRoutes": {
+            "main": "./lib/actions/Routes_OneOrMoreRoutes.js",
+            "title": "View route names and numbers for all routes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Routes_OneOrMoreRoutes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Routes_RouteFromId": {
+            "main": "./lib/actions/Routes_RouteFromId.js",
+            "title": "View route name and number for specific route ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Routes_RouteFromId.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Runs_ForRoute": {
+            "main": "./lib/actions/Runs_ForRoute.js",
+            "title": "View all trip/service runs for a specific route ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Runs_ForRoute.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Runs_ForRouteAndRouteType": {
+            "main": "./lib/actions/Runs_ForRouteAndRouteType.js",
+            "title": "View all trip/service runs for a specific route ID and route type",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Runs_ForRouteAndRouteType.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Runs_ForRun": {
+            "main": "./lib/actions/Runs_ForRun.js",
+            "title": "View all trip/service runs for a specific run ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Runs_ForRun.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Runs_ForRunAndRouteType": {
+            "main": "./lib/actions/Runs_ForRunAndRouteType.js",
+            "title": "View the trip/service run for a specific run ID and route type",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Runs_ForRunAndRouteType.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Search_Search": {
+            "main": "./lib/actions/Search_Search.js",
+            "title": "View stops, routes and myki ticket outlets that match the search term",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Search_Search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Stops_StopsByGeolocation": {
+            "main": "./lib/actions/Stops_StopsByGeolocation.js",
+            "title": "View all stops near a specific location",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Stops_StopsByGeolocation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Stops_StopsForRoute": {
+            "main": "./lib/actions/Stops_StopsForRoute.js",
+            "title": "View all stops on a specific route",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Stops_StopsForRoute.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Stops_StopDetails": {
+            "main": "./lib/actions/Stops_StopDetails.js",
+            "title": "View facilities at a specific stop (Metro and V/Line stations only)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Stops_StopDetails.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
